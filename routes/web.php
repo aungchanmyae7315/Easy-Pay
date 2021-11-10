@@ -23,4 +23,3 @@ Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.logi
 Route::post('/admin/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
 Route::get('/home', 'Frontend\PageController@home');
 
-

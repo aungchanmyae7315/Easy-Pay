@@ -11,4 +11,7 @@ class PageController extends Controller
     {
         return view('frontend.home');
     }
+    public function start(){
+        return view('frontend.start');
+    }
 }

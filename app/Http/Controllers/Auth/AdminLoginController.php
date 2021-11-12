@@ -43,6 +43,7 @@ class AdminLoginController extends Controller
     {
         return Auth::guard('admin_user');
     }
+    
     public function showLoginForm()
     {
         return view('auth.admin_login');

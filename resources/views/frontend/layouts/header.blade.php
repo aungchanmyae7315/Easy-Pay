@@ -4,9 +4,12 @@
         <a href="#" class="nav__logo">
            
             <img src="{{asset('frontend/images/logo.png')}}" class="nav__logo-img" alt="">
-            Halloween
+           
+                {{ config('app.name', 'Laravel') }}
+            
         </a>
-
+        
+       
         <div class="nav__menu" id="nav-menu">
             <ul class="nav__list">
                 <li class="nav__item">
@@ -24,8 +27,41 @@
                 <li class="nav__item">
                     <a href="#new" class="nav__link">New</a>
                 </li>
+            
+               
 
                 <a href="#" class="button button--ghost">Support</a>
+                <li class="user_info_item">
+                    @guest
+                       
+                            <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                    
+                        @if (Route::has('register'))
+                            
+                                <a  href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                    @else
+                        <li class="nav-item dropdown">
+                            <a style="color:#fff;" id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
+            
+            </li>
             </ul>
 
             <div class="nav__close" id="nav-close">

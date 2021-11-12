@@ -1,9 +1,16 @@
 @extends('frontend.layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        Home Page
+@yield('css')
+
+    <div>
+        <main>
+            @include('frontend.layouts.header')
+            @include('frontend.layouts.body')
+            @include('frontend.layouts.footer') 
+        </main>
+        
     </div>
-</div>
+      
+   
 @endsection

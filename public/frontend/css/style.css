@@ -1034,3 +1034,11 @@ button {
         left: -3%;
     }
 }
+
+.user_info_item {
+    display: contents;
+}
+
+.user_info_item a {
+    color: #fff;
+}
